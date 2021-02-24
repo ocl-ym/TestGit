@@ -19,13 +19,30 @@ public class MainActivity extends AppCompatActivity {
         EditText tankaInput = findViewById(R.id.tanka);
         EditText numInput = findViewById(R.id.num);
 
+        double discount = 0.9;
+        boolean discountflg = false;
+        int total = 0;
+
         int tanka = Integer.parseInt(tankaInput.getText().toString());
         int num = Integer.parseInt(numInput.getText().toString());
 
-        int calc = calc(tanka, num);
+        if (num >= 10){
+            discountflg = true;
+        }
 
-        String toastMessage = String.format("合計金額は%,d円です。", calc);
+        if(discountflg == true){
+            total = discountCalc(tanka, num, discount);
+        }else{
+            total = calc(tanka, num);
+        }
+
+        String toastMessage = String.format("合計金額は%,d円です。", total);
         Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
+    }
+
+    private int discountCalc(int tanka, int num, double discount) {
+        int total = (int) (tanka * num * discount);
+        return total;
     }
 
     private int calc(int tanka, int num) {
