@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CalcGitSample</string>
+    <string name="tankaText">単価</string>
+    <string name="numText">数量</string>
+    <string name="calcBtn">計算</string>
+    <string name="hint">整数を入力してください</string>
+</resources>
